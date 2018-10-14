@@ -8,8 +8,8 @@ library(corrplot)
 library(caret)
 library(caTools)
 
-df<- read.csv('D:\\MY-DOC\\Documents\\NBA Data\\NBA shot log 16-17-regular season\\NBA shot log 16-17-regular season\\Shot data\\shot log LAL.csv')
-stats<- read.csv('D:\\MY-DOC\\Documents\\NBA Data\\NBA shot log 16-17-regular season\\NBA shot log 16-17-regular season\\Player Regular 16-17 Stats.csv') 
+df<- read.csv('shot log LAL.csv')
+stats<- read.csv('Player Regular 16-17 Stats.csv') 
 
 # Half court image
 courtImg.URL <- "https://thedatagame.files.wordpress.com/2016/03/nba_court.jpg"
@@ -148,7 +148,6 @@ cv = lapply(folds, function(x) {
   y_pred = predict(classifier, newdata = test_fold[-4])
 
   cm = table(test_fold[, 4], y_pred)
-	# accuracy = total corect predictions/total observations
 
   accuracy = (cm[1,1] + cm[2,2]) / (cm[1,1] + cm[2,2] + cm[1,2] + cm[2,1])
   return(accuracy)
